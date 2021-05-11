@@ -22,7 +22,7 @@ node {
       def resourceGroup = 'GodsEye'
       def webAppName = 'JenkinsTeste'
       // login Azure
-      withCredentials([usernamePassword(credentialsId: '<service_princial>', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+      withCredentials([usernamePassword(credentialsId: 'cmatos@d-evo.com', passwordVariable: 'DEVO@2021', usernameVariable: 'cmatos@d-evo.com')]) {
        sh '''
           az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
           az account set -s $AZURE_SUBSCRIPTION_ID
