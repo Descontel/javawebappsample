@@ -21,11 +21,11 @@ node {
     stage('deploy') {
       def resourceGroup = 'GodsEye'
       def webAppName = 'JenkinsTeste'
-      // login Azure
+      // login Azure linha 27 az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
       withCredentials([usernamePassword(credentialsId:'c3185599-8bfc-4f16-a7b9-2b5e045da6ff', passwordVariable: 'DEVO@2021', usernameVariable: 'cmatos@d-evo.com')]) {
        sh '''
-        //az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
-         // az login --service-principal -u 'cmatos@d-evo.com' -p 'DEVO@2021.' -t $AZURE_TENANT_ID
+        
+       // az login --service-principal -u 'cmatos@d-evo.com' -p 'DEVO@2021.' -t $AZURE_TENANT_ID
          az login -u cmatos@descontel.com -p DEVO@2021.
           az account set -s $AZURE_SUBSCRIPTION_ID
         '''
