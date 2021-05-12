@@ -3,7 +3,7 @@ import groovy.json.JsonSlurper
 def getFtpPublishProfile(def publishProfilesJson) {
   def pubProfiles = new JsonSlurper().parseText(publishProfilesJson)
   for (p in pubProfiles)
-    if (p['publishMethod'] == 'FTPS')
+    if (p['publishMethod'] == 'FTP')
       return [url: p.publishUrl, username: p.userName, password: p.userPWD]
 }
 
@@ -32,7 +32,7 @@ node {
       }
       // get publish settings linha 28 az login --service-principal -u 'cmatos@d-evo.com' -p 'DEVO@2021.' -t $AZURE_TENANT_ID 
       def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g $resourceGroup -n $webAppName", returnStdout: true
-      def ftpsProfile = getFtpPublishProfile pubProfilesJson
+      def ftpProfile = getFtpPublishProfile pubProfilesJson
       // upload package
       sh "curl -T target/calculator-1.0.war $ftpsProfile.url/webapps/ROOT.war -u '$ftpsProfile.username:$ftpsProfile.password'" 
       
