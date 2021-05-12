@@ -4,7 +4,7 @@ def getFtpPublishProfile(def publishProfilesJson) {
   def pubProfiles = new JsonSlurper().parseText(publishProfilesJson)
   for (p in pubProfiles)
     if (p['publishMethod'] == 'FTP')
-    return [url: p.publishUrl, username: p.JenkinsTeste\JenkinsTeste, password: p.L1tyL2xCHqJTyjgB3xDBaSA83NNA6uBTjhwRiYp9KD4lBJPgX2H4a0q7SAKk]
+    return [url: p.publishUrl, username: p.JenkinsTeste, password: p.L1tyL2xCHqJTyjgB3xDBaSA83NNA6uBTjhwRiYp9KD4lBJPgX2H4a0q7SAKk]
    // return [url: p.publishUrl, username: p.userName, password: p.userPWD]
 }
 
@@ -37,7 +37,7 @@ node {
       // upload package
       sh "curl -T target/calculator-1.0.war $ftpProfile.url/webapps/ROOT.war -u '$ftpProfile.username:$ftpProfile.password'"
       // log out
-      sh 'az logout'
+     // sh 'az logout'
     }
   }
 }
