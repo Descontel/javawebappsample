@@ -35,7 +35,7 @@ node {
       def pubProfilesJson = sh script: "az webapp deployment list-publishing-profiles -g $resourceGroup -n $webAppName", returnStdout: true
       def ftpProfile = getFtpPublishProfile pubProfilesJson
       // upload package
-      sh "curl -T target/calculator-1.0.war $ftpProfile.url/webapps/ROOT.war -u wecarebackofficeuser -p 'L1tyL2xCHqJTyjgB3xDBaSA83NNA6uBTjhwRiYp9KD4lBJPgX2H4a0q7SAKk'"
+      sh "curl -T target/calculator-1.0.war $ftpProfile.url/webapps/ROOT.war -u wecarebackofficeuser:L1tyL2xCHqJTyjgB3xDBaSA83NNA6uBTjhwRiYp9KD4lBJPgX2H4a0q7SAKk"
       // linha 38 - u -> '$ftpProfile.username:$ftpProfile.password'
       // log out
       sh 'az logout'
